@@ -7,7 +7,6 @@ node_modules/
 .env.*
 backups/
 *.log
-db/migrations/*-seed.sql
 api/users.json
 .DS_Store
 db/exports/
