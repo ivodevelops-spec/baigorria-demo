@@ -188,6 +188,7 @@
 | Julio 2026 | 1 · Fase 1 en producción | CRM, captura leads, WhatsApp bot, email, deploy VPS. Sistema Fase 1 operativo. |
 | 13/07/2026 | 2 · Rediseño de la Restricción | Kickoff Fase 2 (ERP ISIS). Relevamiento con Florencia. Fase 2 en relevamiento; falta API ISIS y reunión con Martín. |
 | 13/07/2026 | 2 · Rediseño de la Restricción — build | Backbone Fase 2 construido y verificado E2E contra el mock: motor de sync ISIS→Postgres (`api/sync-isis.js`), campos de logística (tipo_entrega/bultos), lead time, roles multi-usuario, UI. Plan en `docs/PLAN-FASE2.md`. Desbloqueos pendientes: API ISIS, reunión Martín, WhatsApp/PDFs. |
+| 14/07/2026 | 2 · Verificación pre-demo | Sistema local levantado y verificado. **HALLAZGO CRÍTICO:** Los leads entran a Google Sheets (https://docs.google.com/spreadsheets/d/1OooiJFo9_VlUDKn-VL6GjG04PO0NxywuxFvNuhye0Us) pero NO se replican al CRM. Informe ejecutivo creado (`docs/INFORME-CLIENTE.md`). Documentación técnica de la integración Sheets→CRM en `docs/ESTADO-LEADS-INTEGRACION.md`. Pendiente: migración de leads reales del Sheet al CRM + deploy de demo para el cliente. |
 
 ---
 
@@ -195,5 +196,6 @@
 - La Fase 1 está en producción y funcionando. El sistema está documentado en `GUIA-IMPLEMENTACION.md` (547 líneas, paso a paso para deploy y mantenimiento).
 - La Fase 2 (ERP ISIS + notificaciones) requiere que el cliente entregue la **API de ISIS** (la manda Florencia) y acceso al servidor de facturas. Sin eso no se puede avanzar.
 - Fase 2 abarca más que ISIS: **censar y decidir qué bases de datos integrar** (la mayoría Google Sheets + BD de picking), **migrar el proceso de logística de Sheets al CRM**, **roles/permisos por equipo** y **WhatsApp multi-vendedor**. Depende de la reunión técnica con Martín.
+- **CRÍTICO (14/07):** Detectado que los leads entran a Google Sheets pero NO se replican al CRM. Se necesita decisión del cliente: Opción A (Sheet + sync automático) u Opción B (webhook directo Meta→CRM). Ver `docs/ESTADO-LEADS-INTEGRACION.md`.
 - La presentación visual está en `D:\Programación\Baigorria\presentacion\index.html`.
 - Empresa grande, con certificación ISO, exportación internacional. Potencial de caso insignia fuerte para Hermes.

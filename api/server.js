@@ -200,6 +200,106 @@ app.patch('/isis/pedidos/:nro', (req, res) => {
 app.get('/health', (_req, res) => res.json({ ok: true, service: 'mock-isis-api' }));
 // ^ /isis/health por separado, el general /health está más abajo
 
+// ── Webhooks (sin auth, vienen de externos) ────────────────────────────────
+const META_VERIFY_TOKEN = process.env.META_VERIFY_TOKEN || 'baigorria_meta_verify_2026';
+const SHEETS_WEBHOOK_SECRET = process.env.SHEETS_WEBHOOK_SECRET || 'baigorria_sheets_secret_2026';
+
+// Webhook Meta Ads - Verificación (GET) y Captura (POST)
+app.get('/webhook/meta-leads', (req, res) => {
+  const mode = req.query['hub.mode'];
+  const token = req.query['hub.verify_token'];
+  const challenge = req.query['hub.challenge'];
+  if (mode === 'subscribe' && token === META_VERIFY_TOKEN) {
+    console.log('[webhook/meta] verificación exitosa');
+    res.status(200).send(challenge);
+  } else {
+    res.status(403).send('Forbidden');
+  }
+});
+
+app.post('/webhook/meta-leads', async (req, res) => {
+  try {
+    console.log('[webhook/meta] payload recibido:', JSON.stringify(req.body, null, 2));
+    const entry = req.body.entry?.[0];
+    const change = entry?.changes?.[0];
+    const leadData = change?.value?.leadgen_id ? change.value : null;
+    
+    if (!leadData) {
+      console.log('[webhook/meta] payload sin leadgen_id, ignorado');
+      return res.status(200).json({ ok: true, message: 'no lead data' });
+    }
+
+    const formData = leadData.field_data || [];
+    const lead = { origen: 'Meta Ads', plataforma: 'Facebook', fecha_ingreso: new Date() };
+    
+    for (const field of formData) {
+      const name = (field.name || '').toLowerCase();
+      const value = field.values?.[0] || '';
+      if (name.includes('first') || name.includes('nombre')) lead.nombre = value;
+      else if (name.includes('last') || name.includes('apellido')) lead.apellido = value;
+      else if (name.includes('email') || name.includes('correo')) lead.email = value;
+      else if (name.includes('phone') || name.includes('tel')) lead.telefono = value;
+      else if (name.includes('empresa') || name.includes('company')) lead.empresa = value;
+      else if (name.includes('rubro') || name.includes('actividad')) lead.rubro = value;
+      else if (name.includes('provincia') || name.includes('localidad')) lead.provincia = value;
+      else if (name.includes('producto') || name.includes('interes')) lead.producto = value;
+      else if (name.includes('observ') || name.includes('comentario')) lead.observaciones = value;
+      else if (name.includes('compra') || name.includes('estimad')) lead.compra_estimada = value;
+    }
+
+    if (!lead.email) {
+      console.log('[webhook/meta] lead sin email, ignorado');
+      return res.status(200).json({ ok: true, message: 'lead sin email' });
+    }
+
+    const existe = await pool.query('SELECT id FROM leads WHERE email=$1', [lead.email]);
+    if (existe.rows.length > 0) {
+      console.log('[webhook/meta] lead duplicado (email ya existe), ignorado');
+      return res.status(200).json({ ok: true, message: 'lead ya existe' });
+    }
+
+    await pool.query(`INSERT INTO leads (nombre, apellido, email, telefono, empresa, rubro, provincia, producto, observaciones, origen, plataforma, compra_estimada, fecha_ingreso, estado) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,'Nuevo')`, [lead.nombre, lead.apellido, lead.email, lead.telefono, lead.empresa, lead.rubro, lead.provincia, lead.producto, lead.observaciones, lead.origen, lead.plataforma, lead.compra_estimada, lead.fecha_ingreso]);
+    
+    console.log('[webhook/meta] lead insertado:', lead.email);
+    res.status(200).json({ ok: true, message: 'lead creado' });
+  } catch (err) {
+    console.error('[webhook/meta] error:', err.message);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Webhook Google Sheets (con secret token)
+app.post('/webhook/sheets-leads', async (req, res) => {
+  try {
+    const auth = req.headers.authorization || '';
+    if (auth !== `Bearer ${SHEETS_WEBHOOK_SECRET}`) {
+      console.log('[webhook/sheets] token inválido');
+      return res.status(401).json({ error: 'no autorizado' });
+    }
+
+    const lead = req.body;
+    console.log('[webhook/sheets] lead recibido:', lead.email || lead.nombre);
+
+    if (!lead.email && !lead.telefono) {
+      return res.status(400).json({ error: 'lead sin email ni teléfono' });
+    }
+
+    const existe = await pool.query('SELECT id FROM leads WHERE email=$1 OR (telefono IS NOT NULL AND telefono=$2)', [lead.email, lead.telefono]);
+    if (existe.rows.length > 0) {
+      console.log('[webhook/sheets] lead duplicado, ignorado');
+      return res.status(200).json({ ok: true, message: 'lead ya existe' });
+    }
+
+    await pool.query(`INSERT INTO leads (fecha_ingreso, nombre, apellido, email, telefono, empresa, rubro, provincia, producto, observaciones, origen, plataforma, compra_estimada, estado, fecha_contacto, vendedor, comentarios, proveedor_actual, potencial, venta_concretada, fecha_venta) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21)`, [lead.fecha_ingreso || new Date(), lead.nombre, lead.apellido, lead.email, lead.telefono, lead.empresa, lead.rubro, lead.provincia, lead.producto, lead.observaciones, lead.origen || 'Google Sheets', lead.plataforma || 'Meta', lead.compra_estimada, lead.estado || 'Nuevo', lead.fecha_contacto, lead.vendedor, lead.comentarios, lead.proveedor_actual, lead.potencial, lead.venta_concretada || false, lead.fecha_venta]);
+
+    console.log('[webhook/sheets] lead insertado:', lead.email);
+    res.status(201).json({ ok: true, message: 'lead creado' });
+  } catch (err) {
+    console.error('[webhook/sheets] error:', err.message);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // ── Auth ───────────────────────────────────────────────────────────────────
 function auth(req, res, next) {
   const h = req.headers.authorization || '';
@@ -260,6 +360,15 @@ app.get('/api/leads', auth, requireRole('ventas', 'admin'), async (req, res) => 
   if (q) { p.push(`%${q}%`); sql += ` AND (nombre ILIKE $${p.length} OR empresa ILIKE $${p.length} OR email ILIKE $${p.length})`; }
   sql += ' ORDER BY lead_score DESC, id DESC';
   res.json((await pool.query(sql, p)).rows);
+});
+
+app.post('/api/leads', auth, requireRole('ventas', 'admin'), async (req, res) => {
+  const { nombre, apellido, email, telefono, empresa, rubro, provincia, producto, observaciones, origen, plataforma, compra_estimada } = req.body;
+  if (!nombre || !email) return res.status(400).json({ error: 'faltan campos obligatorios (nombre, email)' });
+  const existe = await pool.query('SELECT id FROM leads WHERE email=$1 OR (telefono IS NOT NULL AND telefono=$2)', [email, telefono]);
+  if (existe.rows.length > 0) return res.status(409).json({ error: 'lead ya existe' });
+  const { rows } = await pool.query(`INSERT INTO leads (nombre, apellido, email, telefono, empresa, rubro, provincia, producto, observaciones, origen, plataforma, compra_estimada, fecha_ingreso) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,now()) RETURNING id`, [nombre, apellido, email, telefono, empresa, rubro, provincia, producto, observaciones, origen, plataforma, compra_estimada]);
+  res.status(201).json({ ok: true, id: rows[0].id });
 });
 
 app.patch('/api/leads/:id', auth, requireRole('ventas', 'admin'), async (req, res) => {

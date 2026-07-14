@@ -4,11 +4,17 @@ services:
     runtime: node
     plan: free
     buildCommand: cd web && npm install && npm run build && cd ../api && npm install
-    startCommand: cd api && NODE_ENV=production node server.js
+    startCommand: cd api && node server.js
     envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
       - key: DATABASE_URL
         sync: false
       - key: JWT_SECRET
         generateValue: true
-      - key: NODE_ENV
-        value: production
+      - key: META_VERIFY_TOKEN
+        generateValue: true
+      - key: SHEETS_WEBHOOK_SECRET
+        generateValue: true
