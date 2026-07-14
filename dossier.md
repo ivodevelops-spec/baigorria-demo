@@ -1,7 +1,7 @@
 # Dossier — Baigorria Industrial · Cliente #1
 
 > Datos verificados en `https://baigorriaindustrial.com/` (julio 2026).
-> **Última actualización:** 13/07/2026 (lunes) — relevamiento + kickoff de build Fase 2.
+> **Última actualización:** 14/07/2026 (martes) — deploy demo a Render listo.
 
 | Campo | Valor |
 |---|---|
@@ -189,6 +189,7 @@
 | 13/07/2026 | 2 · Rediseño de la Restricción | Kickoff Fase 2 (ERP ISIS). Relevamiento con Florencia. Fase 2 en relevamiento; falta API ISIS y reunión con Martín. |
 | 13/07/2026 | 2 · Rediseño de la Restricción — build | Backbone Fase 2 construido y verificado E2E contra el mock: motor de sync ISIS→Postgres (`api/sync-isis.js`), campos de logística (tipo_entrega/bultos), lead time, roles multi-usuario, UI. Plan en `docs/PLAN-FASE2.md`. Desbloqueos pendientes: API ISIS, reunión Martín, WhatsApp/PDFs. |
 | 14/07/2026 | 2 · Verificación pre-demo | Sistema local levantado y verificado. **HALLAZGO CRÍTICO:** Los leads entran a Google Sheets (https://docs.google.com/spreadsheets/d/1OooiJFo9_VlUDKn-VL6GjG04PO0NxywuxFvNuhye0Us) pero NO se replican al CRM. Informe ejecutivo creado (`docs/INFORME-CLIENTE.md`). Documentación técnica de la integración Sheets→CRM en `docs/ESTADO-LEADS-INTEGRACION.md`. Pendiente: migración de leads reales del Sheet al CRM + deploy de demo para el cliente. |
+| 14/07/2026 | 2 · Deploy listo | Código subido a GitHub (`ivodevelops-spec/baigorria-demo`, branch `main`). `render.yaml` configurado con todas las env vars. Guía `DEPLOY-AHORA.md` creada. **Solo falta que Ivo cree la DB + Web Service en Render (~10 min).** |
 
 ---
 
