@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: baigorria-demo
+    runtime: node
+    plan: free
+    buildCommand: cd web && npm install && npm run build && cd ../api && npm install
+    startCommand: cd api && NODE_ENV=production node server.js
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: NODE_ENV
+        value: production
