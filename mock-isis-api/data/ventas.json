@@ -1,0 +1,212 @@
+[
+  {
+    "cliente_isis_id": "C001",
+    "periodo": "2026-01",
+    "total_facturado": 1300576,
+    "kilos_vendidos": 530,
+    "ticket_promedio": 45000
+  },
+  {
+    "cliente_isis_id": "C002",
+    "periodo": "2026-01",
+    "total_facturado": 827765,
+    "kilos_vendidos": 247,
+    "ticket_promedio": 28000
+  },
+  {
+    "cliente_isis_id": "C003",
+    "periodo": "2026-01",
+    "total_facturado": 2376036,
+    "kilos_vendidos": 1116,
+    "ticket_promedio": 72000
+  },
+  {
+    "cliente_isis_id": "C007",
+    "periodo": "2026-01",
+    "total_facturado": 1040643,
+    "kilos_vendidos": 362,
+    "ticket_promedio": 35000
+  },
+  {
+    "cliente_isis_id": "C012",
+    "periodo": "2026-01",
+    "total_facturado": 1562389,
+    "kilos_vendidos": 762,
+    "ticket_promedio": 52000
+  },
+  {
+    "cliente_isis_id": "C001",
+    "periodo": "2026-02",
+    "total_facturado": 1301675,
+    "kilos_vendidos": 559,
+    "ticket_promedio": 45000
+  },
+  {
+    "cliente_isis_id": "C002",
+    "periodo": "2026-02",
+    "total_facturado": 763545,
+    "kilos_vendidos": 288,
+    "ticket_promedio": 28000
+  },
+  {
+    "cliente_isis_id": "C003",
+    "periodo": "2026-02",
+    "total_facturado": 2512366,
+    "kilos_vendidos": 1082,
+    "ticket_promedio": 72000
+  },
+  {
+    "cliente_isis_id": "C007",
+    "periodo": "2026-02",
+    "total_facturado": 991635,
+    "kilos_vendidos": 425,
+    "ticket_promedio": 35000
+  },
+  {
+    "cliente_isis_id": "C012",
+    "periodo": "2026-02",
+    "total_facturado": 1774797,
+    "kilos_vendidos": 736,
+    "ticket_promedio": 52000
+  },
+  {
+    "cliente_isis_id": "C001",
+    "periodo": "2026-03",
+    "total_facturado": 1310403,
+    "kilos_vendidos": 506,
+    "ticket_promedio": 45000
+  },
+  {
+    "cliente_isis_id": "C002",
+    "periodo": "2026-03",
+    "total_facturado": 782536,
+    "kilos_vendidos": 274,
+    "ticket_promedio": 28000
+  },
+  {
+    "cliente_isis_id": "C003",
+    "periodo": "2026-03",
+    "total_facturado": 2576985,
+    "kilos_vendidos": 1055,
+    "ticket_promedio": 72000
+  },
+  {
+    "cliente_isis_id": "C007",
+    "periodo": "2026-03",
+    "total_facturado": 1042431,
+    "kilos_vendidos": 351,
+    "ticket_promedio": 35000
+  },
+  {
+    "cliente_isis_id": "C012",
+    "periodo": "2026-03",
+    "total_facturado": 1700216,
+    "kilos_vendidos": 725,
+    "ticket_promedio": 52000
+  },
+  {
+    "cliente_isis_id": "C001",
+    "periodo": "2026-04",
+    "total_facturado": 1490242,
+    "kilos_vendidos": 567,
+    "ticket_promedio": 45000
+  },
+  {
+    "cliente_isis_id": "C002",
+    "periodo": "2026-04",
+    "total_facturado": 790636,
+    "kilos_vendidos": 270,
+    "ticket_promedio": 28000
+  },
+  {
+    "cliente_isis_id": "C003",
+    "periodo": "2026-04",
+    "total_facturado": 2341247,
+    "kilos_vendidos": 1097,
+    "ticket_promedio": 72000
+  },
+  {
+    "cliente_isis_id": "C007",
+    "periodo": "2026-04",
+    "total_facturado": 891104,
+    "kilos_vendidos": 358,
+    "ticket_promedio": 35000
+  },
+  {
+    "cliente_isis_id": "C012",
+    "periodo": "2026-04",
+    "total_facturado": 1870087,
+    "kilos_vendidos": 687,
+    "ticket_promedio": 52000
+  },
+  {
+    "cliente_isis_id": "C001",
+    "periodo": "2026-05",
+    "total_facturado": 1533199,
+    "kilos_vendidos": 492,
+    "ticket_promedio": 45000
+  },
+  {
+    "cliente_isis_id": "C002",
+    "periodo": "2026-05",
+    "total_facturado": 798903,
+    "kilos_vendidos": 274,
+    "ticket_promedio": 28000
+  },
+  {
+    "cliente_isis_id": "C003",
+    "periodo": "2026-05",
+    "total_facturado": 2435750,
+    "kilos_vendidos": 1098,
+    "ticket_promedio": 72000
+  },
+  {
+    "cliente_isis_id": "C007",
+    "periodo": "2026-05",
+    "total_facturado": 1071190,
+    "kilos_vendidos": 375,
+    "ticket_promedio": 35000
+  },
+  {
+    "cliente_isis_id": "C012",
+    "periodo": "2026-05",
+    "total_facturado": 1588706,
+    "kilos_vendidos": 705,
+    "ticket_promedio": 52000
+  },
+  {
+    "cliente_isis_id": "C001",
+    "periodo": "2026-06",
+    "total_facturado": 1475155,
+    "kilos_vendidos": 555,
+    "ticket_promedio": 45000
+  },
+  {
+    "cliente_isis_id": "C002",
+    "periodo": "2026-06",
+    "total_facturado": 717722,
+    "kilos_vendidos": 287,
+    "ticket_promedio": 28000
+  },
+  {
+    "cliente_isis_id": "C003",
+    "periodo": "2026-06",
+    "total_facturado": 2249628,
+    "kilos_vendidos": 1009,
+    "ticket_promedio": 72000
+  },
+  {
+    "cliente_isis_id": "C007",
+    "periodo": "2026-06",
+    "total_facturado": 1031493,
+    "kilos_vendidos": 402,
+    "ticket_promedio": 35000
+  },
+  {
+    "cliente_isis_id": "C012",
+    "periodo": "2026-06",
+    "total_facturado": 1818471,
+    "kilos_vendidos": 765,
+    "ticket_promedio": 52000
+  }
+]

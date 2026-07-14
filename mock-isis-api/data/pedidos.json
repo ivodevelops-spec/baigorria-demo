@@ -1,0 +1,57 @@
+[
+  {
+    "nro_pedido": "PED-1045",
+    "cliente_isis_id": "C005",
+    "cliente_nombre": "Taller Mecánico Rodríguez",
+    "fecha_pedido": "2026-06-02",
+    "kilos_total": 45,
+    "estado": "En proceso",
+    "retira_local": true,
+    "nro_factura": null,
+    "ruta_pdf": null
+  },
+  {
+    "nro_pedido": "PED-1044",
+    "cliente_isis_id": "C003",
+    "cliente_nombre": "Distribuidora Norte SA",
+    "fecha_pedido": "2026-06-01",
+    "kilos_total": 1200,
+    "estado": "En proceso",
+    "retira_local": false,
+    "nro_factura": null,
+    "ruta_pdf": null
+  },
+  {
+    "nro_pedido": "PED-1043",
+    "cliente_isis_id": "C002",
+    "cliente_nombre": "Ferretería El Tornillo",
+    "fecha_pedido": "2026-05-31",
+    "kilos_total": 320,
+    "estado": "Terminado",
+    "retira_local": false,
+    "nro_factura": null,
+    "ruta_pdf": null
+  },
+  {
+    "nro_pedido": "PED-1042",
+    "cliente_isis_id": "C001",
+    "cliente_nombre": "Bulonera Central SRL",
+    "fecha_pedido": "2026-05-30",
+    "kilos_total": 850.5,
+    "estado": "Facturado",
+    "retira_local": false,
+    "nro_factura": "F-004521",
+    "ruta_pdf": "\\\\servidor-isis\\facturas\\F-004521.pdf"
+  },
+  {
+    "nro_pedido": "PED-1046",
+    "cliente_isis_id": "C004",
+    "cliente_nombre": "Casa de Repuestos La Plata",
+    "fecha_pedido": "2026-05-29",
+    "kilos_total": 560,
+    "estado": "Facturado",
+    "retira_local": false,
+    "nro_factura": "F-004522",
+    "ruta_pdf": "\\\\servidor-isis\\facturas\\F-004522.pdf"
+  }
+]

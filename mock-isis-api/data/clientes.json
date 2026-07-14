@@ -1,0 +1,134 @@
+[
+  {
+    "isis_id": "C001",
+    "nombre": "Bulonera Central SRL",
+    "cuit": "30-71234567-8",
+    "rubro": "Bulonera",
+    "provincia": "Buenos Aires",
+    "localidad": "La Matanza",
+    "telefono": "11-4555-1234",
+    "email": "ventas@buloneracentral.com.ar",
+    "vendedor_asignado": "Carlos"
+  },
+  {
+    "isis_id": "C002",
+    "nombre": "Ferretería El Tornillo",
+    "cuit": "30-69876543-2",
+    "rubro": "Ferretería",
+    "provincia": "CABA",
+    "localidad": "Palermo",
+    "telefono": "11-4777-8899",
+    "email": "info@eltornillo.com.ar",
+    "vendedor_asignado": "Diego"
+  },
+  {
+    "isis_id": "C003",
+    "nombre": "Distribuidora Norte SA",
+    "cuit": "30-55666777-1",
+    "rubro": "Distribuidor/Mayorista",
+    "provincia": "Córdoba",
+    "localidad": "Córdoba Capital",
+    "telefono": "351-555-1212",
+    "email": "compras@distrinorte.com.ar",
+    "vendedor_asignado": "Carlos"
+  },
+  {
+    "isis_id": "C004",
+    "nombre": "Casa de Repuestos La Plata",
+    "cuit": "20-33444555-6",
+    "rubro": "Casa de repuestos",
+    "provincia": "Buenos Aires",
+    "localidad": "La Plata",
+    "telefono": "221-444-3322",
+    "email": "repuestoslaplata@gmail.com",
+    "vendedor_asignado": "Diego"
+  },
+  {
+    "isis_id": "C005",
+    "nombre": "Taller Mecánico Rodríguez",
+    "cuit": "20-11222333-9",
+    "rubro": "Taller mecánico",
+    "provincia": "Buenos Aires",
+    "localidad": "San Justo",
+    "telefono": "11-6666-7788",
+    "email": "tallermrodriguez@hotmail.com",
+    "vendedor_asignado": "Carlos"
+  },
+  {
+    "isis_id": "C006",
+    "nombre": "Bulonera Santiago",
+    "cuit": "30-88777666-4",
+    "rubro": "Bulonera",
+    "provincia": "Buenos Aires",
+    "localidad": "Pehuajó",
+    "telefono": "2396-428984",
+    "email": "bulonerasantiago@gmail.com",
+    "vendedor_asignado": "Carlos"
+  },
+  {
+    "isis_id": "C007",
+    "nombre": "Ferretería Los Andes",
+    "cuit": "30-55444333-1",
+    "rubro": "Ferretería",
+    "provincia": "Mendoza",
+    "localidad": "Mendoza Capital",
+    "telefono": "261-555-7788",
+    "email": "info@losandes.com.ar",
+    "vendedor_asignado": "Diego"
+  },
+  {
+    "isis_id": "C008",
+    "nombre": "Repuestos Seguí",
+    "cuit": "20-44333222-8",
+    "rubro": "Casa de repuestos",
+    "provincia": "Santa Fe",
+    "localidad": "Rosario",
+    "telefono": "341-327-3761",
+    "email": "seguirepuestos@gmail.com",
+    "vendedor_asignado": "Diego"
+  },
+  {
+    "isis_id": "C009",
+    "nombre": "Gomería Aluminé",
+    "cuit": "20-33222111-5",
+    "rubro": "Gomería",
+    "provincia": "Neuquén",
+    "localidad": "Aluminé",
+    "telefono": "2942-577700",
+    "email": "gomeriaalumine@hotmail.com.ar",
+    "vendedor_asignado": "Diego"
+  },
+  {
+    "isis_id": "C010",
+    "nombre": "Metalúrgica M&A",
+    "cuit": "30-77666555-3",
+    "rubro": "Industria",
+    "provincia": "Santa Fe",
+    "localidad": "Las Parejas",
+    "telefono": "3471-672241",
+    "email": "met_mya@hotmail.com",
+    "vendedor_asignado": "Carlos"
+  },
+  {
+    "isis_id": "C011",
+    "nombre": "Neumáticos La Rotonda SRL",
+    "cuit": "30-66555444-7",
+    "rubro": "Casa de repuestos",
+    "provincia": "Neuquén",
+    "localidad": "Plaza Huincul",
+    "telefono": "299-588-0189",
+    "email": "l_cairone@hotmail.com",
+    "vendedor_asignado": "Carlos"
+  },
+  {
+    "isis_id": "C012",
+    "nombre": "Amotor Lázaro",
+    "cuit": "20-99888777-1",
+    "rubro": "Bulonera",
+    "provincia": "Buenos Aires",
+    "localidad": "Provincia Bs As",
+    "telefono": "2241-540831",
+    "email": "cocconiamotor@gmail.com",
+    "vendedor_asignado": "Carlos"
+  }
+]

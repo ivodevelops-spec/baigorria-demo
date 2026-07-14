@@ -1,0 +1,11 @@
+{
+  "name": "mock-isis-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Mock del ERP ISIS (capa adapter) para la demo de Baigorria",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

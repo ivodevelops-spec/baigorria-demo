@@ -1,0 +1,122 @@
+[
+  {
+    "codigo": "BUL-RDA-001",
+    "categoria": "Bulón",
+    "subcategoria": "Bulón de rueda",
+    "tipo": "Liviano",
+    "descripcion": "Bulón rueda 12x1.50 liviano zinc",
+    "unidad_medida": "unidad"
+  },
+  {
+    "codigo": "BUL-RDA-002",
+    "categoria": "Bulón",
+    "subcategoria": "Bulón de rueda",
+    "tipo": "Pesado",
+    "descripcion": "Bulón rueda 14x1.50 pesado cincado",
+    "unidad_medida": "unidad"
+  },
+  {
+    "codigo": "BUL-MAS-001",
+    "categoria": "Bulón",
+    "subcategoria": "Bulón de masa",
+    "tipo": "Standard",
+    "descripcion": "Bulón masa 10x1.25 standard",
+    "unidad_medida": "unidad"
+  },
+  {
+    "codigo": "BUL-MAS-002",
+    "categoria": "Bulón",
+    "subcategoria": "Bulón de masa",
+    "tipo": "Reforzado",
+    "descripcion": "Bulón masa 12x1.50 reforzado",
+    "unidad_medida": "unidad"
+  },
+  {
+    "codigo": "ESP-COM-001",
+    "categoria": "Espárrago",
+    "subcategoria": "Espárrago competición",
+    "tipo": "Doble cono",
+    "descripcion": "Espárrago competición 10x1.25 doble cono",
+    "unidad_medida": "unidad"
+  },
+  {
+    "codigo": "ESP-COM-002",
+    "categoria": "Espárrago",
+    "subcategoria": "Espárrago competición",
+    "tipo": "Tuerca alta",
+    "descripcion": "Espárrago competición 12x1.50 con tuerca alta",
+    "unidad_medida": "unidad"
+  },
+  {
+    "codigo": "ESP-IND-001",
+    "categoria": "Espárrago",
+    "subcategoria": "Espárrago industrial",
+    "tipo": "Hexagonal",
+    "descripcion": "Espárrago industrial 16x2.00 hexagonal grado 8",
+    "unidad_medida": "kg"
+  },
+  {
+    "codigo": "ESP-IND-002",
+    "categoria": "Espárrago",
+    "subcategoria": "Espárrago industrial",
+    "tipo": "Cuadrado",
+    "descripcion": "Espárrago industrial 20x2.50 cuadrado",
+    "unidad_medida": "kg"
+  },
+  {
+    "codigo": "TUE-RDA-001",
+    "categoria": "Tuerca",
+    "subcategoria": "Tuerca rueda",
+    "tipo": "Standard",
+    "descripcion": "Tuerca rueda 12x1.50 cincada",
+    "unidad_medida": "unidad"
+  },
+  {
+    "codigo": "TUE-RDA-002",
+    "categoria": "Tuerca",
+    "subcategoria": "Tuerca rueda",
+    "tipo": "Seguridad",
+    "descripcion": "Tuerca rueda 14x1.50 con seguridad",
+    "unidad_medida": "unidad"
+  },
+  {
+    "codigo": "TUE-ESP-001",
+    "categoria": "Tuerca",
+    "subcategoria": "Tuerca especial",
+    "tipo": "Doble cono",
+    "descripcion": "Tuerca doble cono 10x1.25 competición",
+    "unidad_medida": "unidad"
+  },
+  {
+    "codigo": "BUL-AGR-001",
+    "categoria": "Bulón",
+    "subcategoria": "Bulón agricola",
+    "tipo": "Standard",
+    "descripcion": "Bulón agricola 5/8x3 zincado",
+    "unidad_medida": "unidad"
+  },
+  {
+    "codigo": "BUL-AGR-002",
+    "categoria": "Bulón",
+    "subcategoria": "Bulón agricola",
+    "tipo": "Reforzado",
+    "descripcion": "Bulón agricola 3/4x4 reforzado grado 5",
+    "unidad_medida": "unidad"
+  },
+  {
+    "codigo": "ESP-UTE-001",
+    "categoria": "Espárrago",
+    "subcategoria": "Espárrago UTE",
+    "tipo": "Standard",
+    "descripcion": "Espárrago UTE 16x2.00 galvanizado",
+    "unidad_medida": "kg"
+  },
+  {
+    "codigo": "KIT-SEG-001",
+    "categoria": "Kit",
+    "subcategoria": "Kit seguridad",
+    "tipo": "Complete",
+    "descripcion": "Kit seguridad bulonería (12 medidas)",
+    "unidad_medida": "kit"
+  }
+]

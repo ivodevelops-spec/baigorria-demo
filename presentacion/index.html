@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Baigorria Industrial — Sistema de Gestión Comercial</title>
+<style>
+  :root{
+    --brand:#004C97; --brand2:#0066CC; --brand-dark:#003366;
+    --ink:#1f2328; --muted:#5b6573; --line:#e4e8ee; --bg:#f6f8fb; --white:#fff;
+    --ok:#1a8754; --soon:#b8860b; --plug:#0066CC;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  section{padding:72px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:30px;font-weight:800;letter-spacing:-.5px;margin-bottom:8px;color:var(--brand-dark)}
+  h2 .step{color:var(--brand2);font-weight:700}
+  .lead{color:var(--muted);font-size:17px;max-width:720px;margin-bottom:32px}
+  .eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:700;color:var(--brand2);margin-bottom:10px}
+
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+  .nav .brand{font-weight:800;color:var(--brand);font-size:18px}
+  .nav .brand span{color:var(--muted);font-weight:400;font-size:13px}
+  .nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;margin-left:18px}
+  .nav a:hover{color:var(--brand)}
+  .nav .links{display:flex;flex-wrap:wrap}
+  @media(max-width:780px){.nav .links{display:none}}
+
+  /* HERO */
+  .hero{background:linear-gradient(160deg,#004C97 0%,#0066CC 55%,#0a7bd1 100%);color:#fff;border:none;padding:96px 0 88px}
+  .hero .eyebrow{color:#bfe0ff}
+  .hero h1{font-size:46px;line-height:1.1;font-weight:800;letter-spacing:-1px;margin-bottom:16px}
+  .hero p{font-size:19px;opacity:.92;max-width:680px;margin-bottom:28px}
+  .hero .cta{display:inline-block;background:#fff;color:var(--brand);font-weight:700;padding:13px 26px;border-radius:10px;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+  .hero .cta.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.35);margin-left:10px}
+  .hero .note{font-size:13px;opacity:.7;margin-top:18px}
+
+  /* CARDS / GRID */
+  .grid{display:grid;gap:20px}
+  .g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:780px){.g2,.g3{grid-template-columns:1fr}}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;box-shadow:0 1px 3px rgba(20,40,80,.04)}
+  .card h3{font-size:18px;color:var(--brand-dark);margin-bottom:6px}
+  .card p{color:var(--muted);font-size:15px}
+  .icon{width:42px;height:42px;border-radius:10px;background:#eaf3fc;color:var(--brand);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:12px}
+
+  /* SCREENSHOT FRAME */
+  .shot{border-radius:12px;border:1px solid var(--line);overflow:hidden;box-shadow:0 18px 50px rgba(20,40,80,.13);background:#fff;margin:14px 0}
+  .shot .bar{display:flex;align-items:center;gap:6px;padding:9px 12px;background:#eef1f5;border-bottom:1px solid var(--line)}
+  .shot .bar i{width:11px;height:11px;border-radius:50%;background:#cbd3dd;display:inline-block}
+  .shot .bar .url{margin-left:10px;font-size:12px;color:#8a94a3;background:#fff;border-radius:6px;padding:3px 12px;flex:1}
+  .cap{font-size:13px;color:var(--muted);margin:4px 2px 0}
+
+  /* STATUS PILLS */
+  .pill{display:inline-block;font-size:12px;font-weight:700;padding:3px 11px;border-radius:20px;vertical-align:middle}
+  .p-ok{background:#e4f4ea;color:var(--ok)} .p-soon{background:#fbf2dd;color:var(--soon)} .p-plug{background:#e6f0fb;color:var(--plug)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:24px;font-size:13px;color:var(--muted)}
+
+  /* INTEGRATION BLOCK */
+  .intg{display:flex;gap:18px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;margin-bottom:16px}
+  .intg .num{flex-shrink:0;width:46px;height:46px;border-radius:12px;background:var(--brand);color:#fff;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center}
+  .intg h3{font-size:19px;color:var(--brand-dark);margin-bottom:4px}
+  .intg .det{font-size:14px;color:var(--muted);margin-top:8px}
+  .intg .det b{color:var(--ink)}
+
+  /* TIMELINE */
+  .tl{border-left:3px solid var(--brand);margin-left:10px;padding-left:24px}
+  .tl .it{position:relative;padding:0 0 26px}
+  .tl .it::before{content:'';position:absolute;left:-32px;top:3px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--brand)}
+  .tl .it h4{font-size:16px;color:var(--brand-dark)}
+  .tl .it .when{font-size:12px;font-weight:700;color:var(--brand2);text-transform:uppercase;letter-spacing:1px}
+  .tl .it p{font-size:14px;color:var(--muted)}
+
+  /* CHECKLIST */
+  .check{list-style:none}
+  .check li{padding:10px 0 10px 30px;position:relative;border-bottom:1px solid var(--line);font-size:15px}
+  .check li::before{content:'✓';position:absolute;left:0;top:9px;color:var(--brand);font-weight:800}
+  .check li b{color:var(--brand-dark)}
+
+  /* PRICING */
+  .price{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:780px){.price{grid-template-columns:1fr}}
+  .price .box{background:#fff;border:2px solid var(--line);border-radius:16px;padding:28px;text-align:center}
+  .price .box.hl{border-color:var(--brand);box-shadow:0 12px 30px rgba(0,76,151,.12)}
+  .price .amt{font-size:40px;font-weight:800;color:var(--brand)}
+  .price .per{color:var(--muted);font-size:14px}
+  .price ul{list-style:none;text-align:left;margin-top:16px;font-size:14px;color:var(--muted)}
+  .price ul li{padding:5px 0 5px 22px;position:relative}
+  .price ul li::before{content:'·';position:absolute;left:6px;color:var(--brand);font-weight:800}
+
+  footer{background:var(--brand-dark);color:#fff;text-align:center;padding:54px 24px}
+  footer h3{font-size:24px;margin-bottom:10px}
+  footer a{color:#bfe0ff}
+  .tagrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .tag{background:#eaf3fc;color:var(--brand);font-size:12px;font-weight:700;padding:5px 12px;border-radius:8px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="nav"><div class="wrap">
+  <div class="brand">BAIGORRIA <span>· Gestión Comercial</span></div>
+  <div class="links">
+    <a href="#problema">Problema</a>
+    <a href="#entorno">El entorno</a>
+    <a href="#roles">Roles</a>
+    <a href="#integraciones">Integraciones</a>
+    <a href="#plan">Plan</a>
+  </div>
+</div></div>
+
+<!-- HERO -->
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">Propuesta para Baigorria Industrial</div>
+  <h1>Que tu equipo deje de hacer tareas operativas<br/>y vuelva a vender.</h1>
+  <p>Un solo tablero web donde ventas y logística ven todo lo que necesitan, con avisos automáticos por WhatsApp y datos que entran solos desde el ERP — sin tocar la base de datos ni copiar y pegar.</p>
+  <a class="cta" href="#entorno">Ver el entorno ↓</a>
+</div></header>
+
+<!-- PROBLEMA -->
+<section id="problema"><div class="wrap">
+  <div class="eyebrow">El punto de partida</div>
+  <h2>Hoy se pierden horas en lo que un sistema puede hacer solo</h2>
+  <p class="lead">Cada día el equipo comercial invierte tiempo en tareas repetitivas que no generan ventas. Ese tiempo es el que queremos liberar.</p>
+  <div class="grid g3">
+    <div class="card"><div class="icon">📄</div><h3>Facturas a mano</h3><p>Buscar el contacto, escribir, adjuntar el PDF y enviar — uno por uno.</p></div>
+    <div class="card"><div class="icon">📋</div><h3>Copiar pedidos</h3><p>Pasar pedidos del ERP a una planilla para coordinar con el depósito.</p></div>
+    <div class="card"><div class="icon">📞</div><h3>Responder consultas</h3><p>"¿En qué estado está mi pedido?" y leads que no aplican al negocio.</p></div>
+  </div>
+</div></section>
+
+<!-- ENTORNO / DEMO -->
+<section id="entorno"><div class="wrap">
+  <div class="eyebrow">Paso 1 — El entorno</div>
+  <h2>Un tablero único, en el navegador, sin instalar nada</h2>
+  <p class="lead">El entorno se compone de <b>un tablero web unificado</b>. Los leads se cargan desde las campañas; los pedidos, clientes y stock se sincronizan desde el ERP ISIS (ver integraciones). La forma de trabajo no cambia: solo cambia de dónde vienen los datos.</p>
+
+  <div class="shot"><div class="bar"><i></i><i></i><i></i><span class="url">baigorria · iniciar sesión</span></div><img src="img/00-login.png" alt="Login"/></div>
+  <p class="cap">Acceso por usuario. Cada persona entra con su rol y ve solo lo suyo.</p>
+
+  <div class="shot"><div class="bar"><i></i><i></i><i></i><span class="url">baigorria · inicio</span></div><img src="img/01-dashboard.png" alt="Dashboard"/></div>
+  <p class="cap">Inicio: KPIs del negocio de un vistazo — leads, embudo de ventas, facturación del mes, pedidos activos.</p>
+
+  <div class="grid g2">
+    <div><div class="shot"><div class="bar"><i></i><i></i><i></i><span class="url">baigorria · leads</span></div><img src="img/02-leads.png" alt="Leads"/></div>
+    <p class="cap">Leads clasificados por prioridad (score automático): a quién llamar primero.</p></div>
+    <div><div class="shot"><div class="bar"><i></i><i></i><i></i><span class="url">baigorria · pedidos</span></div><img src="img/03-pedidos.png" alt="Pedidos"/></div>
+    <p class="cap">Pedidos con su estado y prioridad de armado editable por logística.</p></div>
+  </div>
+  <div class="grid g3">
+    <div><div class="shot"><div class="bar"><i></i><i></i><i></i><span class="url">clientes</span></div><img src="img/04-clientes.png" alt="Clientes"/></div><p class="cap">Clientes.</p></div>
+    <div><div class="shot"><div class="bar"><i></i><i></i><i></i><span class="url">stock</span></div><img src="img/05-stock.png" alt="Stock"/></div><p class="cap">Stock por tipo de artículo.</p></div>
+    <div><div class="shot"><div class="bar"><i></i><i></i><i></i><span class="url">ventas</span></div><img src="img/06-ventas.png" alt="Ventas"/></div><p class="cap">Facturación mensual.</p></div>
+  </div>
+</div></section>
+
+<!-- ROLES -->
+<section id="roles"><div class="wrap">
+  <div class="eyebrow">Paso 2 — Seguridad por rol</div>
+  <h2>Cada persona ve lo suyo. La facturación queda protegida.</h2>
+  <p class="lead"><b>Ventas</b> ve el panorama completo: leads, pedidos, clientes y facturación. <b>Logística</b> ve pedidos y stock, <b>sin acceso a la facturación</b> — sin montos, sin números de factura, sin datos sensibles. Por ejemplo: la persona de ventas puede ver cuánto facturó cada cliente este mes; la persona de logística solo ve qué pedidos hay que armar y con qué prioridad, sin ver un solo número de plata. Cada perfil accede solo a la información que necesita para su trabajo.</p>
+  <div class="grid g2">
+    <div><div class="shot"><div class="bar"><i></i><i></i><i></i><span class="url">inicio · vista logística</span></div><img src="img/07-dashboard-logistica.png" alt="Dashboard logística"/></div>
+    <p class="cap">Inicio de logística: sin KPIs de facturación.</p></div>
+    <div><div class="shot"><div class="bar"><i></i><i></i><i></i><span class="url">pedidos · vista logística</span></div><img src="img/08-pedidos-logistica.png" alt="Pedidos logística"/></div>
+    <p class="cap">Pedidos de logística: sin la columna de factura.</p></div>
+  </div>
+</div></section>
+
+<!-- INTEGRACIONES -->
+<section id="integraciones"><div class="wrap">
+  <div class="eyebrow">Paso 3 — Las integraciones</div>
+  <h2>Cómo se conecta todo, una por una</h2>
+  <p class="lead">El tablero es la cara visible. Por detrás, estas automatizaciones son las que sacan el trabajo manual. Vamos peldaño por peldaño.</p>
+
+  <div class="intg"><div class="num">1</div><div>
+    <h3>Captura de leads — Meta / Google Ads <span class="pill p-plug">Requiere acceso</span></h3>
+    <p>Cada formulario de Facebook/Instagram/Google entra <b>solo</b> al sistema, ya clasificado por prioridad, y le avisa al vendedor. No hay que entrar a Meta Business a revisar.</p>
+    <div class="det"><b>Cómo se integra:</b> un conector escucha los formularios y carga el lead automáticamente. <b>Necesitamos:</b> acceso a la página de Facebook / formularios de leads.</div>
+  </div></div>
+
+  <div class="intg"><div class="num">2</div><div>
+    <h3>Bot de WhatsApp con secuencias <span class="pill p-soon">Próxima fase</span></h3>
+    <p>Cuando un lead escribe por primera vez, <b>un bot responde solo</b>, le manda el catálogo, hace preguntas básicas (rubro, qué busca, cuánto calcula comprar) y lo deriva al vendedor que corresponde. Si no responde, le manda recordatorios automáticos (a las 24 y 72 hs).</p>
+    <div class="det"><b>Cómo se integra:</b> WhatsApp Business conectado al motor de automatización. <b>Necesitamos:</b> un número dedicado de WhatsApp Business.</div>
+  </div></div>
+
+  <div class="intg"><div class="num">3</div><div>
+    <h3>Email marketing — secuencia automática <span class="pill p-soon">Próxima fase</span></h3>
+    <p>Cada lead nuevo entra a una <b>secuencia de emails</b> (bienvenida + catálogo, precios y condiciones, testimonios, oferta) que se envían solos en los días siguientes. Comunicación constante con el cliente sin esfuerzo del equipo.</p>
+    <div class="det"><b>Cómo se integra:</b> plataforma de email marketing self-hosted (Listmonk) conectada al sistema.</div>
+  </div></div>
+
+  <div class="intg"><div class="num">4</div><div>
+    <h3>Conexión con el ERP ISIS <span class="pill p-plug">Requiere acceso</span></h3>
+    <p>Los pedidos, clientes, stock y artículos <b>entran solos desde ISIS</b> cada pocos minutos. <b>Se termina el copiar y pegar</b> del ERP a la planilla. La conexión es una "capa traductora" modular: si mañana cambian de ERP, se cambia esa capa y el resto del sistema sigue igual — no quedan atados a ISIS para siempre.</p>
+    <div class="det"><b>Cómo se integra:</b> vistas/API de solo lectura del ERP → sincronización automática. <b>Necesitamos:</b> que el proveedor de ISIS habilite el acceso de lectura.</div>
+  </div></div>
+
+  <div class="intg"><div class="num">5</div><div>
+    <h3>Avisos de estado + factura PDF por WhatsApp <span class="pill p-plug">Requiere acceso</span></h3>
+    <p>Cuando un pedido pasa a <b>facturado</b> o <b>despachado</b>, el cliente recibe el aviso por WhatsApp <b>automáticamente</b>, con la <b>factura en PDF adjunta</b>. Nadie del equipo mueve un dedo.</p>
+    <div class="det"><b>Cómo se integra:</b> el sistema detecta el cambio de estado, busca el PDF en el servidor y lo envía. <b>Necesitamos:</b> la ruta donde ISIS guarda los PDF de factura.</div>
+  </div></div>
+
+  <div class="intg"><div class="num">6</div><div>
+    <h3>Reportes automáticos <span class="pill p-soon">Próxima fase</span></h3>
+    <p>Cada lunes, un <b>resumen automático</b> por email: cuántos leads entraron, cuántos se contactaron, cuántos cerraron y la facturación de la semana. Sin armar nada a mano.</p>
+    <div class="det"><b>Cómo se integra:</b> el motor de automatización arma y envía el reporte solo.</div>
+  </div></div>
+</div></section>
+
+<!-- ARQUITECTURA -->
+<section id="arquitectura"><div class="wrap">
+  <div class="eyebrow">Cómo se conecta todo</div>
+  <h2>Tranquilos: todo corre en servidor propio y los datos son suyos</h2>
+  <div class="grid g3">
+    <div class="card"><div class="icon">🔒</div><h3>Datos 100% suyos</h3><p>Todo en infraestructura propia, exportable cuando quieran. Los PDF de factura nunca se almacenan: se envían y se descartan.</p></div>
+    <div class="card"><div class="icon">🧩</div><h3>Modular y reemplazable</h3><p>El ERP se integra como una capa aparte. Si cambian de ERP en el futuro, no hay que rehacer el sistema.</p></div>
+    <div class="card"><div class="icon">📱</div><h3>Web, sin instalar</h3><p>Se abre desde la computadora o el celular, con la marca de Baigorria. Nada que instalar.</p></div>
+  </div>
+</div></section>
+
+<!-- PLAN -->
+<section id="plan"><div class="wrap">
+  <div class="eyebrow">Paso 4 — El plan</div>
+  <h2>Avanzamos por etapas, peldaño por peldaño</h2>
+  <div class="tl">
+    <div class="it"><div class="when">Listo · para evaluar</div><h4>Fase 0 — El entorno (demo)</h4><p>Tablero funcional con leads reales y datos de ejemplo.</p></div>
+    <div class="it"><div class="when">Semana 1</div><h4>Fase 1 — Puesta en marcha</h4><p>Servidor, dominio y accesos del equipo.</p></div>
+    <div class="it"><div class="when">Semanas 2–4</div><h4>Fase 2 — Conexión con ISIS</h4><p>Pedidos, clientes y stock reales entrando solos. (Depende del acceso del proveedor de ISIS.)</p></div>
+    <div class="it"><div class="when">Semanas 4–6</div><h4>Fase 3 — WhatsApp</h4><p>Avisos automáticos de estado + factura PDF al cliente.</p></div>
+    <div class="it"><div class="when">Semanas 5–7</div><h4>Fase 4 — Leads y comunicación</h4><p>Bot de WhatsApp, secuencias de email y reporte semanal.</p></div>
+    <div class="it"><div class="when">Semana 7–8</div><h4>Fase 5 — Capacitación y go-live</h4><p>Equipo entrenado y sistema en producción.</p></div>
+  </div>
+</div></section>
+
+<!-- NECESITAMOS -->
+<section id="necesitamos"><div class="wrap">
+  <div class="eyebrow">Para avanzar rápido</div>
+  <h2>Qué necesitamos de ustedes</h2>
+  <p class="lead">Cuanto antes tengamos estos accesos, antes arrancan las fases reales. Mientras tanto, avanzamos con todo lo que no depende de ellos.</p>
+  <ul class="check">
+    <li><b>ERP ISIS:</b> contacto del proveedor y acceso de solo lectura a pedidos, clientes, artículos y stock + la ruta de los PDF de factura.</li>
+    <li><b>WhatsApp:</b> un número dedicado de WhatsApp Business (no personal).</li>
+    <li><b>Meta / Google Ads:</b> acceso a la página y a los formularios de leads.</li>
+    <li><b>Infraestructura:</b> un servidor (lo damos de alta nosotros) y un dominio.</li>
+    <li><b>Negocio:</b> lista de vendedores, reglas de prioridad de armado y qué leads consideran "que aplican".</li>
+    <li><b>Marca:</b> logo y colores oficiales (ya usamos el azul institucional).</li>
+    <li><b>Contacto:</b> un referente del lado de ustedes para coordinar los accesos.</li>
+  </ul>
+</div></section>
+
+<!-- INVERSION (se envía por separado) -->
+
+<!-- FOOTER -->
+<footer>
+  <h3>Listos para liberarle horas al equipo</h3>
+  <p>Próximo paso: confirmamos y gestionamos el acceso a ISIS para arrancar.</p>
+  <div class="tagrow" style="justify-content:center">
+    <span class="tag">Datos 100% suyos</span><span class="tag">Web, sin instalar</span><span class="tag">Modular y escalable</span>
+  </div>
+  <p style="margin-top:22px;opacity:.85">Ivo Paolantonio &nbsp;·&nbsp; Ruffo</p>
+</footer>
+
+</body>
+</html>

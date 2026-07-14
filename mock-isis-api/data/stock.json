@@ -1,0 +1,107 @@
+[
+  {
+    "articulo_codigo": "BUL-RDA-001",
+    "kilos_disponibles": 0,
+    "unidades_disponibles": 2500,
+    "estado": "Disponible",
+    "ubicacion": "Estante A-12"
+  },
+  {
+    "articulo_codigo": "BUL-RDA-002",
+    "kilos_disponibles": 0,
+    "unidades_disponibles": 1800,
+    "estado": "Disponible",
+    "ubicacion": "Estante A-14"
+  },
+  {
+    "articulo_codigo": "BUL-MAS-001",
+    "kilos_disponibles": 0,
+    "unidades_disponibles": 3200,
+    "estado": "Disponible",
+    "ubicacion": "Estante B-03"
+  },
+  {
+    "articulo_codigo": "BUL-MAS-002",
+    "kilos_disponibles": 0,
+    "unidades_disponibles": 950,
+    "estado": "Bajo stock",
+    "ubicacion": "Estante B-05"
+  },
+  {
+    "articulo_codigo": "ESP-COM-001",
+    "kilos_disponibles": 0,
+    "unidades_disponibles": 600,
+    "estado": "Bajo stock",
+    "ubicacion": "Estante C-01"
+  },
+  {
+    "articulo_codigo": "ESP-COM-002",
+    "kilos_disponibles": 0,
+    "unidades_disponibles": 1200,
+    "estado": "Disponible",
+    "ubicacion": "Estante C-02"
+  },
+  {
+    "articulo_codigo": "ESP-IND-001",
+    "kilos_disponibles": 850.5,
+    "unidades_disponibles": 0,
+    "estado": "Disponible",
+    "ubicacion": "Depósito mayorista"
+  },
+  {
+    "articulo_codigo": "ESP-IND-002",
+    "kilos_disponibles": 420,
+    "unidades_disponibles": 0,
+    "estado": "Disponible",
+    "ubicacion": "Depósito mayorista"
+  },
+  {
+    "articulo_codigo": "TUE-RDA-001",
+    "kilos_disponibles": 0,
+    "unidades_disponibles": 5000,
+    "estado": "Disponible",
+    "ubicacion": "Estante D-01"
+  },
+  {
+    "articulo_codigo": "TUE-RDA-002",
+    "kilos_disponibles": 0,
+    "unidades_disponibles": 3400,
+    "estado": "Disponible",
+    "ubicacion": "Estante D-02"
+  },
+  {
+    "articulo_codigo": "TUE-ESP-001",
+    "kilos_disponibles": 0,
+    "unidades_disponibles": 800,
+    "estado": "Bajo stock",
+    "ubicacion": "Estante C-05"
+  },
+  {
+    "articulo_codigo": "BUL-AGR-001",
+    "kilos_disponibles": 0,
+    "unidades_disponibles": 1500,
+    "estado": "Disponible",
+    "ubicacion": "Estante E-01"
+  },
+  {
+    "articulo_codigo": "BUL-AGR-002",
+    "kilos_disponibles": 0,
+    "unidades_disponibles": 2200,
+    "estado": "Disponible",
+    "ubicacion": "Estante E-03"
+  },
+  {
+    "articulo_codigo": "ESP-UTE-001",
+    "kilos_disponibles": 320,
+    "unidades_disponibles": 0,
+    "estado": "Disponible",
+    "ubicacion": "Depósito mayorista"
+  },
+  {
+    "articulo_codigo": "KIT-SEG-001",
+    "kilos_disponibles": 0,
+    "unidades_disponibles": 200,
+    "estado": "Bajo stock",
+    "ubicacion": "Estante K-01"
+  }
+]

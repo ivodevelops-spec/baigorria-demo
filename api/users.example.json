@@ -1,0 +1,10 @@
+[
+  { "usuario": "florencia", "nombre": "Florencia", "rol": "ventas", "password": "CAMBIAR" },
+  { "usuario": "vendedor2", "nombre": "Vendedor 2", "rol": "ventas", "password": "CAMBIAR" },
+  { "usuario": "vendedor3", "nombre": "Vendedor 3", "rol": "ventas", "password": "CAMBIAR" },
+  { "usuario": "administracion", "nombre": "Administración", "rol": "ventas", "password": "CAMBIAR" },
+  { "usuario": "online", "nombre": "Ventas Online", "rol": "ventas", "password": "CAMBIAR" },
+  { "usuario": "martin", "nombre": "Martín", "rol": "logistica", "password": "CAMBIAR" },
+  { "usuario": "logistica2", "nombre": "Logística 2", "rol": "logistica", "password": "CAMBIAR" },
+  { "usuario": "admin", "nombre": "Gerencia", "rol": "admin", "password": "CAMBIAR" }
+]
