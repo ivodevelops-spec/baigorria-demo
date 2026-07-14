@@ -3,18 +3,18 @@ services:
     name: baigorria-demo
     runtime: node
     plan: free
-    buildCommand: cd web && npm install && npm run build && cd ../api && npm install
-    startCommand: cd api && node server.js
+    buildCommand: cd web && npm ci && npm run build && cd ../api && npm ci
+    startCommand: cd api && NODE_ENV=production node server.js
     envVars:
       - key: NODE_ENV
         value: production
       - key: PORT
-        value: 10000
+        value: 3001
       - key: DATABASE_URL
         sync: false
       - key: JWT_SECRET
-        generateValue: true
+        sync: false
       - key: META_VERIFY_TOKEN
-        generateValue: true
+        value: baigorria_meta_verify_2026
       - key: SHEETS_WEBHOOK_SECRET
-        generateValue: true
+        value: baigorria_sheets_secret_2026
