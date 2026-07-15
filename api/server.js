@@ -139,9 +139,9 @@ async function seedISIS() {
 
 // ── Usuarios ───────────────────────────────────────────────────────────────
 const DEFAULT_USERS = [
-  { usuario: 'florencia', nombre: 'Florencia', rol: 'ventas', password: 'flor123' },
-  { usuario: 'martin', nombre: 'Martín', rol: 'logistica', password: 'martin123' },
-  { usuario: 'admin', nombre: 'Administrador', rol: 'admin', password: 'admin123' },
+  { usuario: 'ventas', nombre: 'Ventas', rol: 'ventas', password: 'ventas123' },
+  { usuario: 'logistica', nombre: 'Logística', rol: 'logistica', password: 'logistica123' },
+  { usuario: 'admin', nombre: 'Admin', rol: 'admin', password: 'admin123' },
 ];
 function loadUsers() {
   try { return JSON.parse(fs.readFileSync(path.join(__dirname, 'users.json'), 'utf8')); }
