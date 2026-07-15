@@ -13,7 +13,7 @@
 | Empresa | Baigorria Industrial |
 | Rubro | Fábrica de bulones, tuercas, espárragos |
 | Geografía | Villa Mercedes, San Luis, Argentina |
-| Contactos | **Florencia** (ventas) · **Martín** (logística) |
+| Contactos | **Florencia** (ventas) · **Martín** (gerencia) |
 | Tamaño | Pyme industrial con operación establecida |
 | ERP | **ISIS** (servidor local Windows) |
 | Dato clave | Corren campañas de **Meta/Google Ads** que generan leads entrantes |
@@ -140,7 +140,7 @@ ERP ISIS ─► [ capa adapter modular ] ─► PostgreSQL ─► API (Express) 
 ```
 
 - **ISIS = capa externa, modular y reemplazable** (patrón adapter). El sistema nunca habla con ISIS directo; consume un contrato API normalizado (`MODELO-DATOS.md §7`). En dev/demo lo sirve `mock-isis-api`; en prod, el ISIS real; a futuro, su reemplazo — sin tocar el resto.
-- **Roles:** `ventas` (Florencia, ve todo), `logistica` (Martín, sin facturación), `admin`.
+- **Roles:** `ventas` (equipo comercial, ve todo), `logistica` (expedición, sin facturación ni precios), `admin` (gerencia, ve todo).
 
 ### No usar nunca
 
@@ -151,11 +151,11 @@ ERP ISIS ─► [ capa adapter modular ] ─► PostgreSQL ─► API (Express) 
 
 ## 7. Roles y reglas de negocio
 
-| Rol | Usuario | Ve facturación | Acceso |
-|---|---|---|---|
-| `ventas` | Florencia | ✅ Sí | Leads, Clientes, Pedidos, Stock, Ventas — TODO |
-| `logistica` | Martín | ❌ No | Pedidos, Stock. No ve `nro_factura` ni Ventas (403). |
-| `admin` | Admin | ✅ Sí | TODO |
+| Rol | Quiénes | Ve facturación | Acceso |
+|---|---|---|---|---|
+| `ventas` | Florencia, Martín, equipo comercial | ✅ Sí | Leads, Clientes, Pedidos, Stock, Ventas — TODO |
+| `logistica` | Equipo de expedición (2 usuarios) | ❌ No | Pedidos, Stock, Clientes (solo lectura). No ve `nro_factura`, Ventas, ni montos (403). |
+| `admin` | Ivo | ✅ Sí | TODO |
 
 ### Reglas del dominio (de `CONOCIMIENTO-BASE.md`)
 
@@ -255,8 +255,8 @@ cloudflared tunnel --url http://localhost:5173
 
 | Usuario | Rol | Password |
 |---|---|---|
-| florencia | ventas | flor123 |
-| martin | logistica | martin123 |
+| ventas | ventas | ventas123 |
+| logistica | logistica | logistica123 |
 | admin | admin | admin123 |
 
 ---

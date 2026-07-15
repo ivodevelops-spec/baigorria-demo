@@ -178,13 +178,13 @@ En proceso → Terminado → Facturado → Despachado
 
 ## 6. Roles y permisos
 
-| Rol | Quién | Ve | NO ve |
-|-----|-------|----|-------|
-| **ventas** | Florencia | Leads, pedidos, clientes, stock, ventas, facturación | — |
-| **logistica** | Martín | Pedidos (con prioridad), stock | Facturación (nro_factura, ventas, montos) |
+| Rol | Quiénes | Ve | NO ve |
+|-----|---------|----|-------|
+| **ventas** | Florencia, Martín, equipo comercial | Leads, pedidos, clientes, stock, ventas, facturación | — |
+| **logistica** | Equipo de expedición (2 usuarios) | Pedidos (con prioridad), stock, clientes | Facturación (nro_factura, ventas, montos) |
 | **admin** | Ivo | Todo | — |
 
-**Regla de negocio clave:** Martín (logística) no debe ver datos de facturación — pedido explícito de Florencia (C#64 de la reunión del 28/05).
+**Regla de negocio clave:** El equipo de logística (expedición) no debe ver datos de facturación — pedido explícito de Florencia (C#64 de la reunión del 28/05).
 
 ---
 

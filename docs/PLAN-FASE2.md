@@ -58,9 +58,9 @@ Workflow n8n que hace poll del contrato cada N min y **UPSERT** por clave natura
 - **REVISABLE:** los campos exactos de logística se confirman con Martín.
 
 ### WS4 · Roles y equipo 🟢
-- Multi-usuario: **3 vendedores + 1 administración + 1 vendedora online + 2 logística (solo consulta)**.
-- Logística NO ve facturación/precios/montos (regla firme) pero **sí** debe poder ver el resto → abrir `/api/clientes` en modo lectura a logística (hoy le da 403).
-- Usuarios config-driven (no hardcode de 3).
+- Estructura real: **3 vendedores + 1 administración + 1 vendedora online** (rol `ventas`) + **2 expedición** (rol `logistica`, solo consulta). Florencia y Martín = `ventas` (full access). Admin = Ivo.
+- Logística NO ve facturación/precios/montos (regla firme) pero **sí** ve pedidos, stock y clientes en modo lectura.
+- Usuarios demo genéricos por rol (`ventas`/`logistica`/`admin`). En producción, cuentas individuales por persona.
 - **Bloqueado parcial:** nombres/emails reales del equipo.
 
 ### WS5 · WhatsApp 🔒
